@@ -1,7 +1,8 @@
 name: swipe_effect
 description: A nice swipe effect
 version: 0.0.1
-repository: ''
+repository: 'https://github.com/shadi-danhash/swipe_effect'
+homepage: 'https://github.com/shadi-danhash/swipe_effect'
 
 environment:
   sdk: ">=2.15.1 <3.0.0"
