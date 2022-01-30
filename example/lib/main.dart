@@ -47,8 +47,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return SwipeEffect(
       direction: direction,
       color: direction == TextDirection.rtl
-          ? Colors.red.withAlpha(50)
-          : Colors.green.withAlpha(50),
+          ? Colors.red.withAlpha(70)
+          : Colors.green.withAlpha(70),
       verticalTolerance: 1.0,
       startDeltaPx: start,
       callbackDeltaRatio: callbackDelta,
@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ? Alignment.centerLeft
                   : Alignment.centerRight,
               child: Container(
-                color: Colors.blue,
+                color: Colors.blue.withOpacity(0.5),
                 width: start,
               ),
             ),
