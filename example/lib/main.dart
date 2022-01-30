@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        "second": (ctx) => const MyHomePage(),
+        "demo": (ctx) => const MyHomePage(),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -32,12 +32,32 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  TextDirection direction = TextDirection.rtl;
+  double start = 30;
+  double callbackDelta = 0.25;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return SwipeEffect(
-      color: Colors.cyanAccent.withAlpha(50),
-      callback: () { 
-        Navigator.pop(context);
+      direction: direction,
+      color: direction == TextDirection.rtl
+          ? Colors.red.withAlpha(50)
+          : Colors.green.withAlpha(50),
+      verticalTolerance: 1.0,
+      startDeltaPx: start,
+      callbackDeltaRatio: callbackDelta,
+      callback: () {
+        setState(() {
+          start += 10;
+          callbackDelta += 0.1;
+        });
+        // Navigator.pop(context);
       },
       child: Scaffold(
         appBar: AppBar(
@@ -45,9 +65,47 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.pushNamed(context, 'second');
+            setState(() {
+              direction = direction == TextDirection.rtl
+                  ? TextDirection.ltr
+                  : TextDirection.rtl;
+              callbackDelta = 0.25;
+              start = 30;
+            });
           },
-          child: const Icon(Icons.arrow_forward_rounded),
+          child: const Icon(Icons.swap_horiz),
+        ),
+        body: Stack(
+          children: [
+            Align(
+              alignment: direction == TextDirection.ltr
+                  ? Alignment.centerLeft
+                  : Alignment.centerRight,
+              child: Container(
+                color: Colors.blue,
+                width: start,
+              ),
+            ),
+            Align(
+              alignment: direction == TextDirection.ltr
+                  ? Alignment.centerLeft
+                  : Alignment.centerRight,
+              child: Container(
+                color: Colors.black.withAlpha(30),
+                width: callbackDelta * size.width,
+              ),
+            ),
+            Center(
+              child: Text(
+                direction == TextDirection.rtl ? 'Swipe left' : "Swipe right",
+                style: TextStyle(
+                  color: direction == TextDirection.rtl
+                      ? Colors.red
+                      : Colors.green,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
