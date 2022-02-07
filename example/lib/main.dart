@@ -1,5 +1,6 @@
+import 'package:example/screens/first_exapmle.dart';
+import 'package:example/screens/seconde_example.dart';
 import 'package:flutter/material.dart';
-import 'package:swipe_effect/swipe_effect.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,98 +13,58 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        "demo": (ctx) => const MyHomePage(),
+        "demo": (ctx) => const Demo(),
+        "first": (ctx) => const FirstExample(),
+        "second": (ctx) => const SecondExample(),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Demo Swipe Effect'),
+      initialRoute: "demo",
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, this.title = ""}) : super(key: key);
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  TextDirection direction = TextDirection.rtl;
-  double start = 30;
-  double callbackDelta = 0.25;
-
-  @override
-  void initState() {
-    super.initState();
-  }
+class Demo extends StatelessWidget {
+  const Demo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return SwipeEffect(
-      direction: direction,
-      color: direction == TextDirection.rtl
-          ? Colors.red.withAlpha(70)
-          : Colors.green.withAlpha(70),
-      verticalTolerance: 1.0,
-      startDeltaPx: start,
-      callbackDeltaRatio: callbackDelta,
-      callback: () {
-        setState(() {
-          start += 10;
-          callbackDelta += 0.1;
-        });
-        // Navigator.pop(context);
-      },
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            setState(() {
-              direction = direction == TextDirection.rtl
-                  ? TextDirection.ltr
-                  : TextDirection.rtl;
-              callbackDelta = 0.25;
-              start = 30;
-            });
-          },
-          child: const Icon(Icons.swap_horiz),
-        ),
-        body: Stack(
+    return Scaffold(
+      appBar: AppBar(
+          title: const Text('Swipe Effect Demo')
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Align(
-              alignment: direction == TextDirection.ltr
-                  ? Alignment.centerLeft
-                  : Alignment.centerRight,
-              child: Container(
-                color: Colors.blue.withOpacity(0.5),
-                width: start,
+            MaterialButton(
+              color: Colors.blueAccent,
+              onPressed: () => Navigator.of(context).pushNamed("first"),
+              padding: const EdgeInsets.all(50),
+              child: const Text(
+                "Example 1",
+                style: TextStyle(color: Colors.white, fontSize: 24),
               ),
+              highlightColor: Colors.transparent,
+              splashColor: Colors.blueAccent.shade100,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10)),
             ),
-            Align(
-              alignment: direction == TextDirection.ltr
-                  ? Alignment.centerLeft
-                  : Alignment.centerRight,
-              child: Container(
-                color: Colors.black.withAlpha(30),
-                width: callbackDelta * size.width,
+            const SizedBox(height: 20,),
+            MaterialButton(
+              color: Colors.greenAccent,
+              highlightColor: Colors.transparent,
+              onPressed: () => Navigator.of(context).pushNamed("second"),
+              padding: const EdgeInsets.all(50),
+
+              child: const Text(
+                "Example 2",
+                style: TextStyle(color: Colors.white, fontSize: 24),
               ),
-            ),
-            Center(
-              child: Text(
-                direction == TextDirection.rtl ? 'Swipe left' : "Swipe right",
-                style: TextStyle(
-                  color: direction == TextDirection.rtl
-                      ? Colors.red
-                      : Colors.green,
-                ),
-              ),
+              splashColor: Colors.greenAccent.shade100,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
             ),
           ],
         ),

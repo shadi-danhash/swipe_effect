@@ -12,25 +12,41 @@ and the Flutter guide for
 -->
 
 
-## Usage
+## 🪄 Swipe effect
+A simple widget helps with adding an effect to your swipe actions.<br>
+You can use it by wrapping your widget with <b>SwipeEffect</b> and listen to the swipes.
+
+
+## ✨ Usage
 
 
 ```dart
 SwipeEffect(
-      color: Colors.cyanAccent.withAlpha(50),
+      direction: TextDirection.rtl, 
+      color: Colors.green.withAlpha(70),
+      verticalTolerance: 1.0,
+      startDeltaPx: 30,
+      callbackDeltaRatio: 0.25,
       callback: () {
-        Navigator.pop(context);
+        // Navigator.pop(context);
       },
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.pushNamed(context, 'second');
-          },
-          child: const Icon(Icons.arrow_forward_rounded),
-        ),
-      ),
+      child: ...,
     );
 ```
+## 🔮 Showcase
+
+## ⚙️ Parameters
+
+| Parameter | Description |
+|---|---|
+| `child`* | Your child widget. |
+| `callback`* | A call back will be triggered after the swipe action. |
+| `color`| Color of the effect curve. |
+| `direction` | direction of the swipe `TextDirection.ltr` or`TextDirection.rtl` |
+| `verticalTolerance`| Double value determines a ratio from the screen height that after swiping in vertical axis the effect will be dismissed. |
+| `callbackDeltaRatio`| Double value determines a ratio from the screen width to trigger the callback after reaching it.|
+| `startDeltaPx`|Determines where to start the effect from the beginning of the widget (in pixel) |
+
+
+
+## 💻 Authors
