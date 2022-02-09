@@ -9,6 +9,3 @@
 * ability to control when to trigger the listener
 * ability to use left,right directions
 * More design effects
-
-## 0.0.3
-* update README
