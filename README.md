@@ -50,3 +50,6 @@ SwipeEffect(
 
 
 ## 💻 Authors
+
+- [Shadi Danhash](https://github.com/shadi-danhash)
+- [Pierre Baba](https://github.com/PierreBaba)
