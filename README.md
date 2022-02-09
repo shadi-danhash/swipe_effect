@@ -34,7 +34,7 @@ SwipeEffect(
     );
 ```
 ## 🔮 Showcase
-
+![image](images/gif1.gif)
 ## ⚙️ Parameters
 
 | Parameter | Description |
