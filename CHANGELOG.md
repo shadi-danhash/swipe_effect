@@ -3,7 +3,7 @@
 * initial release.
 
 
-## 0.0.2
+## 1.0.1
 
 * More customizable features
 * ability to control when to trigger the listener
