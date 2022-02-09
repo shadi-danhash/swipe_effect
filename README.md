@@ -34,7 +34,7 @@ SwipeEffect(
     );
 ```
 ## 🔮 Showcase
-![image](images/gif1.gif)
+![image](https://github.com/shadi-danhash/swipe_effect/blob/main/images/gif1.gif?raw=true)
 ## ⚙️ Parameters
 
 | Parameter | Description |
