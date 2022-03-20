@@ -31,9 +31,7 @@ class Demo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: const Text('Swipe Effect Demo')
-      ),
+      appBar: AppBar(title: const Text('Swipe Effect Demo')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -48,16 +46,17 @@ class Demo extends StatelessWidget {
               ),
               highlightColor: Colors.transparent,
               splashColor: Colors.blueAccent.shade100,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             MaterialButton(
               color: Colors.greenAccent,
               highlightColor: Colors.transparent,
               onPressed: () => Navigator.of(context).pushNamed("second"),
               padding: const EdgeInsets.all(50),
-
               child: const Text(
                 "Example 2",
                 style: TextStyle(color: Colors.white, fontSize: 24),

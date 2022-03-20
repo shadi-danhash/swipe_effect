@@ -1,5 +1,6 @@
 name: swipe_effect
-description: A nice swipe effect
+description: A simple widget helps with adding an effect to your swipe actions.
+  You can use it by wrapping your widget with SwipeEffect and listen to the swipes.
 version: 1.0.1
 repository: 'https://github.com/shadi-danhash/swipe_effect'
 homepage: 'https://github.com/shadi-danhash/swipe_effect'

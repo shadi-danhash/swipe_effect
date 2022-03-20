@@ -33,6 +33,7 @@ class _SwipeEffectState extends State<SwipeEffect> {
   late Size size;
   late double startX;
   bool isDragging = false;
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -86,10 +87,11 @@ class _SwipeEffectState extends State<SwipeEffect> {
           ),
         ));
   }
+
   @override
   void didUpdateWidget(covariant SwipeEffect oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if(widget.direction!=oldWidget.direction){
+    if (widget.direction != oldWidget.direction) {
       setState(() {
         startX = widget.direction == TextDirection.rtl ? size.width : 0;
         point = Offset(startX, 0);

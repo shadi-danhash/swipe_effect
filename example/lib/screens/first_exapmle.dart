@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:swipe_effect/swipe_effect.dart';
 
 class FirstExample extends StatefulWidget {
-  const FirstExample({Key? key, this.title = "First Example"}) : super(key: key);
+  const FirstExample({Key? key, this.title = "First Example"})
+      : super(key: key);
 
   final String title;
 
