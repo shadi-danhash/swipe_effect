@@ -1,5 +1,6 @@
 name: example
-description: An example for swipe effect
+description: A simple widget helps with adding an effect to your swipe actions.
+  You can use it by wrapping your widget with SwipeEffect and listen to the swipes.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 

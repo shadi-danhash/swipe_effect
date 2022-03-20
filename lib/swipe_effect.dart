@@ -10,6 +10,17 @@ class SwipeEffect extends StatefulWidget {
   final double callbackDeltaRatio;
   final double startDeltaPx;
 
+  ///
+  /// SwipeEffect constructor
+  /// [child] Your child widget.
+  /// [callback] A call back will be triggered after the swipe action.
+  /// [color] Color of the effect curve.
+  /// [direction] direction of the swipe `TextDirection.ltr` or`TextDirection.rtl`
+  /// [verticalTolerance] Double value determines a ratio from the screen height that after swiping in vertical axis the effect will be dismissed.
+  /// [callbackDeltaRatio] Double value determines a ratio from the screen width to trigger the callback after reaching it.
+  /// [startDeltaPx] Determines where to start the effect from the beginning of the widget (in pixel)
+  ///
+
   const SwipeEffect({
     Key? key,
     this.color = Colors.cyanAccent,
@@ -43,6 +54,9 @@ class _SwipeEffectState extends State<SwipeEffect> {
     start = Offset.zero;
   }
 
+  ///
+  /// Detects the swipe gesture and builds a "CustomPaint" widget based on that gesture.
+  ///
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -108,6 +122,10 @@ class BackEffect extends CustomPainter {
 
   BackEffect(this.dragPoint, this.color, this.direction);
 
+  /// Draws path with the given [size].
+  ///
+  /// The path is filled with [color] and starts in [direction]
+  /// The path is a combination of two quadratic curves, to add the swipe effect.
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
